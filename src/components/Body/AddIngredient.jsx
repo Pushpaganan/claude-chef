@@ -1,22 +1,12 @@
-import { useState } from "react"
+import IngredientList from "./IngredientList"
+import CallToAction from "../Body/CallToAction"
+import RecipeSteps from "../Body/RecipeSteps"
 
-export default function AddIngredient() {
-
-    const [ingredientList, setingredientList] = useState([])
-
-    const ingredientsList = ingredientList.map(item => <li key={item} className="ingredients-display__list-item">{item}</li>)
-
-    let Cta = <div className="cta">
-        <div className="cta__content">
-            <h3 className="cta__content-title">Ready for a recipe?</h3>
-            <p className="cta__content-para">Generate a recipe from your list of ingredients</p>
-        </div>
-        <button className="cta__button">Get a receipe</button>
-    </div>
+export default function AddIngredient(props) {   
 
     function onSubmit(formData) {
         const newIngredient = formData.get('ingredient')
-        setingredientList(prevList => [...prevList, newIngredient])
+        props.ingredientFunction(newIngredient)     
     }
 
     return (
@@ -33,11 +23,8 @@ export default function AddIngredient() {
                     Add ingredient
                 </button>
             </form>
-            <section className="ingredients-display">
-                {(ingredientsList.length > 0) ? <><h2 className="ingredients-display__title">Ingredients on hand:</h2>
-                    <ul className="ingredients-display__list"> {ingredientsList} </ul></> : null}
-                {(ingredientList.length > 3) ? Cta : null}
-            </section>
+            
+            <IngredientList ingredientList = {props.ingredients}/>            
         </div>
     )
 }

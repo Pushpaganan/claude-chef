@@ -1,15 +1,17 @@
+import React from "react"
 import AddIngredient from "./AddIngredient"
-import IngredientList from "./IngredientList"
-import CallToAction from "../Body/CallToAction"
-import RecipeSteps from "../Body/RecipeSteps"
 
 export default function Main() {
+    const [ingredientList, setingredientList] = React.useState([])    
+
+    function addIngredient(ingredient){
+        setingredientList(prevList => [...prevList, ingredient])
+        console.log(ingredientList)
+    }
+
     return (
         <main>
-            <AddIngredient />
-            <IngredientList/>
-            <CallToAction/>
-            <RecipeSteps/>
+            <AddIngredient ingredients={ingredientList} ingredientFunction = {addIngredient}/>           
         </main>
     )
 }
