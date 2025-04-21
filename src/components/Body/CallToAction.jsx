@@ -1,10 +1,19 @@
 import React from 'react'
+import GetRecipe from '../../services/ai/OpenAI'
 import RecipeSteps from './RecipeSteps'
-export default function CallToAction(props){
+export default function CallToAction(props) {
 
-    const[showRecipe,setshowRecipe] = React.useState(false)
-    function showRecipeToggle(){
-        setshowRecipe(showRecipe => !showRecipe)
+    const [showRecipe, setshowRecipe] = React.useState(false)
+    const [recipeSteps, setrecipeSteps] = React.useState()
+    async function showRecipeToggle() {
+        try {            
+            const AIRecipeSteps = await GetRecipe(props.ingredientList.join());
+            setrecipeSteps(AIRecipeSteps);
+            setshowRecipe(showRecipe => !showRecipe)
+        }
+        catch (error) {
+            console.error('Error fetching data:', error);
+        }
     }
 
     let Cta = <div className="cta">
@@ -15,9 +24,9 @@ export default function CallToAction(props){
         <button className="cta__button" onClick={showRecipeToggle}>Get a receipe</button>
     </div>
 
-    return(
+    return (
         <>{(props.ingredientList?.length > 3) ? Cta : null}
-        {showRecipe && <RecipeSteps/>}     
+            {showRecipe && recipeSteps}
         </>
     )
 }
