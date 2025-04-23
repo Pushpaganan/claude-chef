@@ -1,11 +1,11 @@
-import HeaderComponent from './components/Navigation/HeaderComponent'
-import Main from './components/body/Main'
+import MemeGeneratorHeader from "./components/MemeGenerator/MemeGeneratorHeader"
+import MemeGeneratorBody from "./components/MemeGenerator/MemeGeneratorBody"
 
 function App() {
   return (
     <>
-    <HeaderComponent/>
-    <Main/>
+    <MemeGeneratorHeader/>
+    <MemeGeneratorBody/>
     </>
   )
 }

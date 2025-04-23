@@ -340,6 +340,11 @@ span:has(.loader) {
 h1, h2 {
   color: #d4a373; /* Light brown */
 }
+
+h2,h3 {
+  margin-bottom: 1em; /* Adjust the value as needed */
+}
+
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -356,4 +361,116 @@ li {
 .notes {
   font-style: italic;
   color: #777;
+}
+
+.meme-header {
+  background-color: purple;
+  display: flex; /* Enable flexbox for alignment */
+  align-items: center; /* Vertically align items in the center */
+  padding: 10px 20px; /* Add some padding around the content */
+}
+
+.meme-header > img {
+  width: 30px; /* Adjust the size of the icon as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 15px; /* Add some space between the icon and the text */
+}
+
+.meme-header > h1 {
+  flex-grow: 1; /* Allow the h1 to take up remaining horizontal space */
+  text-align: center; /* Center the text horizontally */
+  color: white; /* Optional: Set the text color to contrast with the purple */
+  margin: 0; /* Remove default h1 margins */
+}
+
+.meme-gen {
+  /* Basic styling for the section if needed */
+  padding: 20px;
+  border: 1px solid #ccc; /* Example border */
+}
+
+.input-row {
+  display: grid; /* Use CSS Grid for two-column layout */
+  grid-template-columns: auto auto; /* Two columns, auto width */
+  gap: 10px; /* Space between the label and input */
+  margin-bottom: 15px; /* Space below the input row */
+  align-items: center; /* Vertically align label and input in the row */
+}
+
+.input-row label {
+  text-align: left; /* Align label text to the left */
+}
+
+.input-row input[type="text"] {
+  width: 100%; /* Make the input take up the full width of its column */
+  padding: 8px;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.image-info {
+  text-align: center; /* Center the image and spans horizontally */
+  position: relative;
+  color: white;
+}
+
+.image-info img {
+  max-width: 100%; /* Make the image responsive */
+  height: auto;
+  display: block; /* Prevent inline spacing issues */
+  margin-bottom: 5px; /* Space below the image */
+}
+
+.image-info span {
+  display: block; /* Make each span appear on a new line */
+}
+
+.image-info span:first-child {
+  font-weight: bold; /* Style for the top span */
+  margin-bottom: 3px; /* Space between the top and bottom span */
+}
+
+.image-info .top{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-90%, -90%);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.image-info .bottom{
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-90%, -90%);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.gen-meme-submit {
+  background-color: purple;
+  color: white; /* Ensure text is readable against purple */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none; /* Remove default button border */
+  cursor: pointer; /* Indicate it's clickable */
+  display: block; /* Make the button a block-level element */
+  width: 100%; /* Make it take the full width of its container */
+  text-align: center; /* Center the text within the button */
+  font-size: 1em; /* Adjust font size as needed */
+  /* Add any other desired button styles */
+}
+
+.gen-meme-submit:hover {
+  background-color: darkpurple; /* Slightly darker purple on hover */
+}
+
+/* Optional: Style for focus effect */
+.gen-meme-submit:focus {
+  outline: 2px solid lightblue; /* Add a focus outline for accessibility */
+  outline-offset: 2px;
+}
+
+.input-row button.gen-meme-submit{
+  width: 100%;
+  grid-column: 1 / 3;
 }

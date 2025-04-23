@@ -1,4 +1,5 @@
 import React from 'react'
+import parse from 'html-react-parser';
 import GetRecipe from '../../services/ai/OpenAI'
 import RecipeSteps from './RecipeSteps'
 export default function CallToAction(props) {
@@ -26,7 +27,7 @@ export default function CallToAction(props) {
 
     return (
         <>{(props.ingredientList?.length > 3) ? Cta : null}
-            {showRecipe && recipeSteps}
+            {recipeSteps!=null && <div><h1>Chef Claude Recommends:</h1>{parse(recipeSteps)}</div>}
         </>
     )
 }
