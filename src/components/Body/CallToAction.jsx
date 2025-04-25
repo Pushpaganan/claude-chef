@@ -1,6 +1,6 @@
 import React from 'react'
 import parse from 'html-react-parser';
-import GetRecipe from '../../services/ai/OpenAI'
+import GetRecipe from '../../services/AI/OpenAI'
 import RecipeSteps from './RecipeSteps'
 export default function CallToAction(props) {
 
