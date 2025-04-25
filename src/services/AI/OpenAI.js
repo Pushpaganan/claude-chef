@@ -11,8 +11,7 @@ export default async function GetRecipe(ingredientList) {
         apiKey: apiKey,
         baseURL: endpoint,
         defaultQuery: { 'api-version': apiVersion },
-        defaultHeaders: { 'api-key': apiKey },
-        dangerouslyAllowBrowser:true
+        defaultHeaders: { 'api-key': apiKey }        
     });    
 
     const systemPrompt = "You are Chef AI Assistant who is provided with a list of ingredients by the user and is asked for a step-by-step instruction for making a recipe using those ingredients. The recipe can include some additional ingredients that's not passed and may not include some of ingredients that are passed depending upon the suggestion. Format the response in a HTML Div tag to make it easier to render to a web page."
